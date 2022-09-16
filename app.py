@@ -30,7 +30,7 @@ def main():
             p = Data_obj.get_video_stats(channel_id)
             df = ps.DataFrame(p)
             html = df.to_html()
-            text_file=open('result_data.html','w', encoding='utf-8')
+            text_file=open('templates/result_data.html','w', encoding='utf-8')
             text_file.write(html)
             text_file.close()
             #filename = df['Youtuber_name'][0].replace(' ','_') + '.csv'
@@ -41,7 +41,7 @@ def main():
             #msg = ld.Load_Data.load_mongo(p)
             #if msg == 1:
             #return render_template('load_data.html')
-            return webbrowser.open('result_data.html')
+            return render_template('result_data.html')
             #else:
             #return 'Data not loaded'
         except Exception as e:
