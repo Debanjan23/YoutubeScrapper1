@@ -1,4 +1,4 @@
-import webbrowser
+import os.path
 from bs4 import BeautifulSoup as bs
 from flask import Flask, render_template, request
 from flask_cors import cross_origin
@@ -30,7 +30,11 @@ def main():
             p = Data_obj.get_video_stats(channel_id)
             df = ps.DataFrame(p)
             html = df.to_html()
-            text_file=open('templates/result_data.html','w', encoding='utf-8')
+            if os.path.exists('templates/result_data.html'):
+                os.remove('templates/result_data.html')
+                text_file=open('templates/result_data.html','w', encoding='utf-8')
+            else:
+                text_file = open('templates/result_data.html', 'w', encoding='utf-8')
             text_file.write(html)
             text_file.close()
             #filename = df['Youtuber_name'][0].replace(' ','_') + '.csv'
