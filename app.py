@@ -33,10 +33,12 @@ def main():
             if os.path.exists('templates/result_data.html'):
                 os.remove('templates/result_data.html')
                 text_file=open('templates/result_data.html','w', encoding='utf-8')
+                text_file.write(html)
+                text_file.close()
             else:
                 text_file = open('templates/result_data.html', 'w', encoding='utf-8')
-            text_file.write(html)
-            text_file.close()
+                text_file.write(html)
+                text_file.close()
             #filename = df['Youtuber_name'][0].replace(' ','_') + '.csv'
             #df.to_csv(filename, encoding='utf-8', index=False)
             #if filename!='':
