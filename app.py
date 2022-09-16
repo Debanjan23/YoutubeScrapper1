@@ -30,13 +30,13 @@ def main():
             p = Data_obj.get_video_stats(channel_id)
             df = ps.DataFrame(p)
             html = df.to_html()
-            if os.path.exists('templates/result_data.html'):
-                os.remove('templates/result_data.html')
-                text_file=open('templates/result_data.html','w', encoding='utf-8')
+            if os.path.exists('/templates/result_data.html'):
+                os.remove('/templates/result_data.html')
+                text_file=open('/templates/result_data.html','w', encoding='utf-8')
                 text_file.write(html)
                 text_file.close()
             else:
-                text_file = open('templates/result_data.html', 'w', encoding='utf-8')
+                text_file = open('/templates/result_data.html', 'w', encoding='utf-8')
                 text_file.write(html)
                 text_file.close()
             #filename = df['Youtuber_name'][0].replace(' ','_') + '.csv'
