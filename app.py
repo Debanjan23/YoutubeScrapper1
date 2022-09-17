@@ -29,7 +29,7 @@ def main():
             Data_obj = Data.Data()
             p = Data_obj.get_video_stats(channel_id)
             df = ps.DataFrame(p)
-            df.to_html('templates/load_data.html',index=False)
+            df.to_html('templates/load_data.html')
             #if os.path.exists('result_data.html'):
                 #os.remove('result_data.html')
                 #text_file=open('templates/result_data.html','w', encoding='utf-8')
