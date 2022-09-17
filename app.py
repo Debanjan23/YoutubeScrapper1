@@ -29,7 +29,8 @@ def main():
             Data_obj = Data.Data()
             p = Data_obj.get_video_stats(channel_id)
             df = ps.DataFrame(p)
-            df.to_html('templates/load_data.html')
+
+            #df.to_html('templates/load_data.html')
             #if os.path.exists('result_data.html'):
                 #os.remove('result_data.html')
                 #text_file=open('templates/result_data.html','w', encoding='utf-8')
@@ -47,12 +48,12 @@ def main():
             #msg = ld.Load_Data.load_mongo(p)
             #if msg == 1:
             #return render_template('load_data.html')
-            return render_template('load_data.html')
+            return render_template('load_data.html',tables=[df.to_html(classes='data', header='true',index=False)])
             #else:
             #return 'Data not loaded'
         except Exception as e:
           print(e)
 
 if __name__=='__main__':
-    #app.run(host='127.0.0.1', port=8001, debug=True)
-    app.run(debug=True)
+    app.run(host='127.0.0.1', port=8001, debug=True)
+    #app.run(debug=True)
