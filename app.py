@@ -29,16 +29,16 @@ def main():
             Data_obj = Data.Data()
             p = Data_obj.get_video_stats(channel_id)
             df = ps.DataFrame(p)
-            html = df.to_html()
-            if os.path.exists('templates/result_data.html'):
-                os.remove('templates/result_data.html')
-                text_file=open('templates/result_data.html','w', encoding='utf-8')
-                text_file.write(html)
-                text_file.close()
-            else:
-                text_file = open('templates/result_data.html', 'w', encoding='utf-8')
-                text_file.write(html)
-                text_file.close()
+            df.to_html('templates/load_data.html',index=False)
+            #if os.path.exists('result_data.html'):
+                #os.remove('result_data.html')
+                #text_file=open('templates/result_data.html','w', encoding='utf-8')
+                #text_file.write(html)
+                #text_file.close()
+            #else:
+                #text_file = open('templates/result_data.html', 'w', encoding='utf-8')
+                #text_file.write(html)
+                #text_file.close()
             #filename = df['Youtuber_name'][0].replace(' ','_') + '.csv'
             #df.to_csv(filename, encoding='utf-8', index=False)
             #if filename!='':
@@ -47,7 +47,7 @@ def main():
             #msg = ld.Load_Data.load_mongo(p)
             #if msg == 1:
             #return render_template('load_data.html')
-            return render_template('result_data.html')
+            return render_template('load_data.html')
             #else:
             #return 'Data not loaded'
         except Exception as e:
